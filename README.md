@@ -8,4 +8,4 @@
 [CSS入门](https://github.com/Crystal-Amanda/Tasks/blob/main/CSS%E5%85%A5%E9%97%A8.md)<br>
 [网页代码](https://github.com/Crystal-Amanda/Tasks/blob/main/wangye.html)<BR>
 [Javascript](https://github.com/Crystal-Amanda/Tasks/blob/main/JavaScript%E5%AD%A6%E4%B9%A0.md)<br>
-
+[github学习笔记](https://github.com/Crystal-Amanda/Tasks/blob/main/GitHub%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.md)
