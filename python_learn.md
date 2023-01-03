@@ -133,3 +133,60 @@ clac(*nums)
 
 为什么nums可以直接把元素传进去呢？
 Python允许你在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去
+# 🛒面向对象编程
+面向对象的程序设计把计算机程序视为一组对象的集合，而每个对象都可以接收其他对象发过来的消息，并处理这些消息，计算机程序的执行就是一系列消息在各个对象之间传递。
+假设我们要处理学生的成绩表，为了表示一个学生的成绩，面向过程的程序可以用一个dict表示：
+> std1 = {'name':'Tom','score':98}
+
+如果打印出来可以定义一个函数
+> def print_std():
+> print("%s:%s" %(std['name'],std['score']))
+
+如果采用面向对象的程序设计思想，我们首选思考的不是程序的执行流程，而是Student这种数据类型应该被视为一个对象，这个对象拥有name和score这两个属性（Property）。如果要打印一个学生的成绩，首先必须创建出这个学生对应的对象，然后，给对象发一个print_score消息，让对象自己把自己的数据打印出来。
+> class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+
+> bart = Student('Bart Simpson', 59)
+lisa = Student('Lisa Simpson', 87)
+bart.print_score()
+lisa.print_score()
+## 1️⃣类和实例
+类是抽象的模板，比如Student类，而实例是根据类创建出来的一个个具体的“对象”，每个对象都拥有相同的方法，但各自的数据可能不同。
+**类**创建的时候需要class关键字，类首字母大写后面还跟着(object)，一般都是object。
+**实例**就是类的主要承载的，bart = Student()
+我们可以在创建类的时候，通过_init_这个方法把实例必须绑定的属性强制绑定，当然我们也可以自由绑定
+**数据封装**是类具有数据，无需从外面的函数访问，在创建类时就定义函数。
+get_grade()
+> class Student(object):
+    ...
+
+    def get_grade(self):
+        if self.score >= 90:
+            return 'A'
+        elif self.score >= 60:
+            return 'B'
+        else:
+            return 'C'
+可以直接在实例里使用
+# 🛒爬虫
+ 爬虫能做些什么
+> 抓取互联网上的数据，为我所用。
+
+ 什么是爬虫
+ > 通过编写程序，模拟浏览器上网，然后让其去互联网上抓取数据的过程
+
+爬虫在使用场景的分类
+> 通用爬虫：抓取系统的重要组成部分，抓取的是一整张页面的数。
+> 聚焦爬虫：是建立在通用爬虫的基础上，抓取的是页面中特定的局部内容。
+> 增量式爬虫：检测网站中数据更新的情况，只会抓取网站中最新更新出来的数据。
+
+## request模块
+[Requests: 让 HTTP 服务人类](https://cn.python-requests.org/zh_CN/latest/)
+> request的作用：发送HTTP请求，获得响应数据
+
