@@ -1,0 +1,30 @@
+# 导入模块
+from urllib import request
+from bs4 import BeautifulSoup
+import requests
+import re
+
+# 找网址
+url = 'https://itawenya.cn/'
+
+res = requests.get(url)
+
+res.encoding = 'gbk'
+
+
+html = BeautifulSoup(res.text, 'html.parser')
+
+# 检查 找到图片所在的列表，并找到列表的类名
+parent = html.find('div', class='bottom-img')
+# 找到列表中的图片
+images = parent.find_all('img')
+
+for each in images:
+    # 找到图片的网址
+    img_url = 'https://itawenya.cn/img/%E5%B0%8F%E9%B1%BC1.png' + \
+        each.attrs['src']
+    # print(img_url)
+    name = each.attrs['alt']
+    # print(name)
+    # 将图片存到images文件夹中
+    request.urlretrieve(img_url, f'imagess/{name}.jpg')
