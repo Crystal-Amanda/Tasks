@@ -1,0 +1,15 @@
+import requests
+import re
+from lxml import etree
+url = "https://itawenya.cn/"
+resp = requests.get(url)
+et = etree.HTML(resp.text)
+title = et.xpath("/html/head/title/text()")
+# print(title)
+data = et.xpath("//text()")
+b = str(data)
+# b = re.sub(r'\s+', '', data)
+# print(data)
+with open("zhuaqu.html", mode="w", encoding='utf-8') as f:
+    f.write(b)
+print("over!!")
